@@ -20,14 +20,22 @@ export const initDB = async () => {
         updated_at TIMESTAMP DEFAULT NOW()
         )
         `);
-        await pool.query(`
-            ALTER TABLE users
-            ALTER COLUMN email TYPE VARCHAR(40)
-            `)
-        await pool.query(`
-            ALTER TABLE users
-            ALTER COLUMN name TYPE VARCHAR(40)
-            `)
+
+
+        await pool.query(
+            `
+        CREATE TABLE IF NOT EXISTS profiles(
+        id SERIAL PRIMARY KEY,
+        user_id INT UNIQUE REFERENCES users(id) ON DELETE CASCADE,
+        bio TEXT,
+        address TEXT,
+        phone VARCHAR(15),
+        gender VARCHAR(10),
+        created_at TIMESTAMP DEFAULT NOW(),
+        updated_at TIMESTAMP DEFAULT NOW()
+        )
+            `
+        )
 
         console.log("Database connected successfully")
 
