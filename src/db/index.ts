@@ -13,13 +13,14 @@ export const initDB = async () => {
         id SERIAL PRIMARY KEY,
         name VARCHAR(40),
         email VARCHAR(40) UNIQUE NOT NULL,
-        password VARCHAR(20) NOT NULL,
+        password VARCHAR(255) NOT NULL,
         is_active BOOLEAN DEFAULT true,
         age INT,
         created_at TIMESTAMP DEFAULT NOW(),
         updated_at TIMESTAMP DEFAULT NOW()
         )
         `);
+        
 
 
         await pool.query(
