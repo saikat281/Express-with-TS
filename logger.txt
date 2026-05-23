@@ -1,0 +1,32 @@
+
+Method -> GET Time -> 1779533935884 URL -> /
+
+Method -> GET Time -> 1779533952412 URL -> /api/users
+
+Method -> GET Time -> 1779534517752 URL -> /api/users/8
+
+Method -> GET Time -> 1779534533970 URL -> /api/users/10
+
+Method -> GET Time -> 1779535412129 URL -> /api/users/
+
+Method -> GET Time -> 1779535463859 URL -> /api/users
+
+Method -> GET Time -> 1779535667579 URL -> /api/users
+
+Method -> GET Time -> 1779535803694 URL -> /api/users
+
+Method -> GET Time -> 1779535837478 URL -> /api/users
+
+Method -> GET Time -> 1779535879990 URL -> /api/users
+
+Method -> POST Time -> 1779536284600 URL -> /api/auth/login
+
+Method -> GET Time -> 1779536438296 URL -> /api/users/
+
+Method -> GET Time -> 1779536499714 URL -> /api/users/
+
+Method -> GET Time -> 1779536736805 URL -> /api/users
+
+Method -> GET Time -> 1779536792072 URL -> /api/users/
+
+Method -> GET Time -> 1779536809184 URL -> /api/users/
