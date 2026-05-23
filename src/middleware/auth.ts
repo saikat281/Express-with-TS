@@ -2,8 +2,17 @@ import type { NextFunction, Request, Response } from "express";
 import jwt, { type JwtPayload } from "jsonwebtoken"
 import config from "../config";
 import { pool } from "../db";
-const auth = () => {
+import type { ROLES } from "../types";
+
+
+
+
+const auth = (...roles: ROLES[]) => {
+
+
+
     return async (req: Request, res: Response, next: NextFunction) => {
+        console.log(roles)
         try {
             // console.log("This is protected route")
             // console.log(req.headers.authorization)
@@ -26,7 +35,7 @@ const auth = () => {
 
             // console.log(userData)
             const user = userData.rows[0]
-            console.log(user)
+            // console.log(user)
             if (userData.rows.length === 0) {
                 res.status(404).json({
                     success: false,
@@ -35,10 +44,20 @@ const auth = () => {
                 })
             }
 
-            if (user.is_active === false) {
+            if (user?.is_active === false) {
                 res.status(403).json({
                     success: false,
                     message: "forbidden",
+
+                })
+            }
+
+            // roles = [admin,agent]
+            // user.role= admin / agent / user
+            if (roles.length && !roles.includes(user.role)) {
+                res.status(403).json({
+                    success: false,
+                    message: "forbidden, roles have no access",
 
                 })
             }
